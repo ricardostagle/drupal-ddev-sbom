@@ -3,10 +3,10 @@ name: Generate SBOM and Deploy it in Acquia
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   generate_and_deploy_sbom:
@@ -50,7 +50,7 @@ jobs:
       # Note: This step depends ofyour current deploy set up in Acquia. You may need to adjust it accordingly.
 
       - name: Deploy to Acquia Cloud
-        env:
+        #env:
           #SSH_PRIVATE_KEY: ${{ secrets.ACQUIA_SSH_PRIVATE_KEY }}
           #ACQUIA_TOKEN: ${{ secrets.ACQUIA_TOKEN }}
           #REPOSITORY: ${{ secrets.REPOSITORY }}
