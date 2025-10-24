@@ -8,3 +8,5 @@ drush/
 node_modules
 dist
 .Identifier
+/.editorconfig
+/.gitattributes

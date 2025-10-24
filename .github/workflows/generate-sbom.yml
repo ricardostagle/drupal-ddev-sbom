@@ -23,7 +23,7 @@ jobs:
 
       # Install Drupal dependencies
       - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        run: composer install
 
       - name: Run PHPUnit tests
         run: ./vendor/bin/phpunit
