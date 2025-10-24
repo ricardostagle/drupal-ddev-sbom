@@ -1,0 +1,10 @@
+vendor/
+sites/*/files
+web/core/
+web/modules/contrib/
+web/themes/contrib/
+drush/
+.idea
+node_modules
+dist
+.Identifier
