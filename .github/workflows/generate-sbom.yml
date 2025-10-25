@@ -20,14 +20,22 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: mbstring, pdo_mysql, zip # Add any necessary PHP extensions
+          extensions: mbstring, xml, pdo, pdo_mysql, zip, dom, curl, libxml, pcntl, bcmath, intl, gd, exif, iconv, imagick, json, lz4-kjdev/php-ext-lz4@0.4.3 # Add any necessary PHP extensions
           tools: composer:v2 # Specify Composer version if needed
+          ini-values: memory_limit=-1
+          coverage: none
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
 
       - name: Install Composer dependencies
         run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
 
       - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit
+        run: vendor/bin/phpunit
 
       # Generate the SBOM with Anchore Syft
       - name: Generate the SBOM with Anchore Syft
