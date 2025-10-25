@@ -37,8 +37,16 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
 
-      - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit
+      - name: Running unit test
+        uses: php-actions/phpunit@v3
+        with:
+          version: 9.6
+          php_version: 8.1
+          php_extensions: "json zip sodium pcntl bcmath"
+          args: "-d date.timezone=Asia/Jakarta"
+          memory_limit: 300M
+          configuration: phpunit.xml
+          testsuite: unittest
       
       - name: Run psalm
         run: :/vendor/bin/psalm.phar --output-format=github
