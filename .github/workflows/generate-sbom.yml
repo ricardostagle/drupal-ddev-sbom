@@ -35,7 +35,7 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit.phar
+        run: vendor/bin/phpunit
       
       - name: Run psalm
         run: vendor/bin/psalm.phar --output-format=github
