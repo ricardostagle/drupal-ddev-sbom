@@ -27,7 +27,7 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
 
       - name: Run tests (example)
-        run: ./vendor/bin/phpunit # Replace with your actual test command
+        run: ./vendor/bin/phpunit --configuration phpunit.xml # Replace with your actual test command
 
       # Generate the SBOM with Anchore Syft
       - name: Generate the SBOM with Anchore Syft
