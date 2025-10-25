@@ -58,20 +58,5 @@ jobs:
           #ACQUIA_GIT_SERVER: ${{ secrets.ACQUIA_GIT_SERVER }}
           #GITHUB_USER: ${{ secrets.GITHUB_USER }}
         run: |
-          #mkdir -p ~/.ssh
-          #echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          #chmod 600 ~/.ssh/id_rsa
-          #ssh-keyscan -H [your-acquia-git-server] >> ~/.ssh/known_hosts # Replace with your Acquia Git server
-          #git remote add acquia ssh://[acquia-username]@[your-acquia-git-server]:2222/[acquia-app-name].git # Replace with your Acquia details
-          
-          #ssh-keyscan -H "$ACQUIA_GIT_SERVER" >> ~/.ssh/known_hosts
-          #git remote add acquia ssh://"$ACQUIA_USERNAME"@"$ACQUIA_GIT_SERVER":2222/"$ACQUIA_APP_NAME".git
-          #git push acquia HEAD:master # Push to your Acquia Cloud repository
-
-          # For example, use the Acquia Pipelines client ( it requires previous installation and configuration)
-          # pipelines start --application-id=[APP_ID] [USER]/[REPO-NAME] [TOKEN]
-          # pipelines start --application-id=$ACQUIA_APP_ID $GITHUB_USER/$REPOSITORY $ACQUIA_TOKEN
-          # Or use the workflow based in git, the push in Acquia
-          # git push acq-repo HEAD:master
           ECHO "Deploy step needs to be configured based on your Acquia setup."
          
