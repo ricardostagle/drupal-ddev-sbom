@@ -19,14 +19,15 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3' # Adjust to your Drupal version requirements
+          php-version: '8.3'
+          extensions: mbstring, pdo_mysql, zip # Add any necessary PHP extensions
+          tools: composer:v2 # Specify Composer version if needed
 
-      # Install Drupal dependencies
       - name: Install Composer dependencies
-        run: composer install
+        run: composer install --no-ansi --no-interaction --no-progress --prefer-dist
 
-      - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit
+      - name: Run tests (example)
+        run: vendor/bin/phpunit # Replace with your actual test command
 
       # Generate the SBOM with Anchore Syft
       - name: Generate the SBOM with Anchore Syft
